@@ -5,7 +5,7 @@ import AIChatbot from "./components/AIChatbot";
 
 import FamilyDetails from "./pages/familydetails.jsx";
 import Recommendation from "./pages/Recommendation.jsx";
-import PlanDetails from "./pages/plandetails.jsx";
+import PlanDetails from "./pages/PlanDetails.jsx";
 import SignUp from "./pages/signup.jsx";
 import Login from "./pages/login.jsx";
 import Profile from "./pages/profile.jsx";
