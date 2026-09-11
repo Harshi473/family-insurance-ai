@@ -132,8 +132,8 @@ function Recommendation({ familyData, onBack, onViewPlan }) {
         setError("");
 
         const response = await fetch(
-          "http://localhost:5000/api/plans"
-        );
+  "https://family-insurance-ai.onrender.com/api/plans"
+);
 
         if (!response.ok) {
           throw new Error(
