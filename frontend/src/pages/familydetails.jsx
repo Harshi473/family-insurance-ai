@@ -304,7 +304,7 @@ function FamilyDetails({ onBack, onContinue, user }) {
 
       const response =
         await fetch(
-          "http://localhost:5000/api/families",
+            "https://family-insurance-ai.onrender.com/api/families",
           {
             method: "POST",
 
