@@ -29,7 +29,7 @@ function AIChatbot({ familyData }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/chat",
+        "https://family-insurance-ai.onrender.com/api/chat",
         {
           method: "POST",
           headers: {
