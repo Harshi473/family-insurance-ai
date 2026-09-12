@@ -13,47 +13,35 @@ import ForgotPassword from "./pages/forgotpassword.jsx";
 
 function App() {
   const [page, setPage] = useState("home");
-
-  // Stores the family information entered by the user
   const [familyData, setFamilyData] = useState(null);
-
-  // Stores the selected insurance plan
   const [selectedPlan, setSelectedPlan] = useState(null);
-
-  // Stores logged-in user
   const [loggedInUser, setLoggedInUser] = useState(null);
 
-  /* =========================
-     FAMILY DATA
-  ========================= */
+  // =========================
+  // FAMILY DATA
+  // =========================
 
   const handleContinue = (data) => {
     console.log("Family Data received:", data);
 
-    // Save family information
     setFamilyData(data);
-
-    // Go to recommendation page
     setPage("recommendation");
   };
 
-
-  /* =========================
-     PLAN DETAILS
-  ========================= */
+  // =========================
+  // PLAN DETAILS
+  // =========================
 
   const handleViewPlan = (plan) => {
     console.log("Selected Plan:", plan);
 
     setSelectedPlan(plan);
-
     setPage("planDetails");
   };
 
-
-  /* =========================
-     NAVIGATION
-  ========================= */
+  // =========================
+  // NAVIGATION
+  // =========================
 
   const goToHome = () => {
     setPage("home");
@@ -75,11 +63,6 @@ function App() {
     setPage("profile");
   };
 
-
-  /* =========================
-     FAMILY DETAILS
-  ========================= */
-
   const goToDetails = () => {
     if (!loggedInUser) {
       setPage("login");
@@ -89,69 +72,46 @@ function App() {
     setPage("details");
   };
 
-
-  /* =========================
-     RECOMMENDATIONS
-  ========================= */
-
   const goToRecommendations = () => {
     setPage("recommendation");
   };
 
-
-  /* =========================
-     LOGIN
-  ========================= */
+  // =========================
+  // LOGIN
+  // =========================
 
   const handleLoginSuccess = (user) => {
     console.log("Logged in user:", user);
 
     setLoggedInUser(user);
-
     setPage("profile");
   };
 
-
-  /* =========================
-     LOGOUT
-  ========================= */
+  // =========================
+  // LOGOUT
+  // =========================
 
   const handleLogout = () => {
     console.log("User logged out");
 
     setLoggedInUser(null);
-
     setFamilyData(null);
-
     setSelectedPlan(null);
 
     setPage("home");
   };
 
-
-  /* =====================================================
-     AI CHATBOT
-
-     The same familyData is sent to the chatbot on
-     every page.
-
-     Once the user completes Family Details,
-     familyData contains:
-     - family information
-     - family members
-     - familyId
-     ===================================================== */
+  // =========================
+  // AI CHATBOT
+  // =========================
 
   const chatbot = (
-    <AIChatbot
-      familyData={familyData}
-    />
+    <AIChatbot familyData={familyData} />
   );
 
-
-  /* =========================
-     SIGN UP PAGE
-  ========================= */
+  // =========================
+  // SIGN UP PAGE
+  // =========================
 
   if (page === "signup") {
     return (
@@ -166,10 +126,9 @@ function App() {
     );
   }
 
-
-  /* =========================
-     LOGIN PAGE
-  ========================= */
+  // =========================
+  // LOGIN PAGE
+  // =========================
 
   if (page === "login") {
     return (
@@ -186,10 +145,9 @@ function App() {
     );
   }
 
-
-  /* =========================
-     FORGOT PASSWORD PAGE
-  ========================= */
+  // =========================
+  // FORGOT PASSWORD PAGE
+  // =========================
 
   if (page === "forgotPassword") {
     return (
@@ -204,10 +162,9 @@ function App() {
     );
   }
 
-
-  /* =========================
-     PROFILE PAGE
-  ========================= */
+  // =========================
+  // PROFILE PAGE
+  // =========================
 
   if (page === "profile") {
     return (
@@ -223,10 +180,9 @@ function App() {
     );
   }
 
-
-  /* =========================
-     FAMILY DETAILS PAGE
-  ========================= */
+  // =========================
+  // FAMILY DETAILS PAGE
+  // =========================
 
   if (page === "details") {
     return (
@@ -242,10 +198,9 @@ function App() {
     );
   }
 
-
-  /* =========================
-     RECOMMENDATION PAGE
-  ========================= */
+  // =========================
+  // RECOMMENDATION PAGE
+  // =========================
 
   if (page === "recommendation") {
     return (
@@ -261,10 +216,9 @@ function App() {
     );
   }
 
-
-  /* =========================
-     PLAN DETAILS PAGE
-  ========================= */
+  // =========================
+  // PLAN DETAILS PAGE
+  // =========================
 
   if (page === "planDetails") {
     return (
@@ -279,10 +233,9 @@ function App() {
     );
   }
 
-
-  /* =========================
-     HOME PAGE
-  ========================= */
+  // =========================
+  // HOME PAGE
+  // =========================
 
   return (
     <div className="app">
@@ -311,7 +264,6 @@ function App() {
 
         </div>
 
-
         <nav className="nav-links">
 
           <a
@@ -334,7 +286,6 @@ function App() {
           </a>
 
         </nav>
-
 
         <div className="auth-buttons">
 
@@ -371,7 +322,6 @@ function App() {
 
       </header>
 
-
       {/* =========================
           HERO
       ========================= */}
@@ -399,7 +349,6 @@ function App() {
             smart and secure.
           </p>
 
-
           <div className="hero-buttons">
 
             <button
@@ -409,7 +358,6 @@ function App() {
               Get Started <span>→</span>
             </button>
 
-
             <button className="secondary-btn">
               Learn More
             </button>
@@ -418,29 +366,21 @@ function App() {
 
         </div>
 
+        {/* =========================
+            NEW FAMILY IMAGE
+        ========================= */}
 
         <div className="hero-image">
 
-          <div className="family-image-placeholder">
-
-            <div className="family-illustration">
-              👨‍👩‍👧‍👦
-            </div>
-
-            <p>
-              FamilyCare
-            </p>
-
-            <small>
-              Your family's health matters
-            </small>
-
-          </div>
+          <img
+            src="/family.png"
+            alt="FamilyCare family"
+            className="family-photo"
+          />
 
         </div>
 
       </section>
-
 
       {/* =========================
           TRUST SECTION
@@ -466,7 +406,6 @@ function App() {
 
         </div>
 
-
         <div className="trust-card">
 
           <div className="trust-icon purple">
@@ -485,7 +424,6 @@ function App() {
 
         </div>
 
-
         <div className="trust-card">
 
           <div className="trust-icon green">
@@ -503,7 +441,6 @@ function App() {
           </div>
 
         </div>
-
 
         <div className="trust-card">
 
@@ -525,7 +462,6 @@ function App() {
 
       </section>
 
-
       {/* =========================
           PLANS
       ========================= */}
@@ -544,7 +480,6 @@ function App() {
         </h2>
 
         <div className="section-line"></div>
-
 
         <div className="plan-cards">
 
@@ -571,7 +506,6 @@ function App() {
             </button>
 
           </div>
-
 
           <div className="plan-card recommended">
 
@@ -601,7 +535,6 @@ function App() {
 
           </div>
 
-
           <div className="plan-card">
 
             <h3>
@@ -630,7 +563,6 @@ function App() {
 
       </section>
 
-
       {/* =========================
           ABOUT
       ========================= */}
@@ -656,7 +588,6 @@ function App() {
         </p>
 
       </section>
-
 
       {/* =========================
           CONTACT
@@ -684,7 +615,6 @@ function App() {
 
       </section>
 
-
       {/* =========================
           FOOTER
       ========================= */}
@@ -708,7 +638,6 @@ function App() {
         </p>
 
       </footer>
-
 
       {/* =========================
           AI CHATBOT

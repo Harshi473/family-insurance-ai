@@ -38,7 +38,7 @@ function SignUp({ onBack, onLogin }) {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/signup",
+       "https://family-insurance-ai.onrender.com/api/signup",
         {
           method: "POST",
           headers: {

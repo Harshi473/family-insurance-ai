@@ -3636,3 +3636,11 @@ textarea {
   }
 
 }
+.family-photo {
+  width: 100%;
+  max-width: 520px;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}

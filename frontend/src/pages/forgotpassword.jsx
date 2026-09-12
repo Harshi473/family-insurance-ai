@@ -41,7 +41,7 @@ function ForgotPassword({ onBack, onLogin }) {
       setLoading(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/forgot-password",
+        "https://family-insurance-ai.onrender.com/api/forgot-password",
         {
           method: "POST",
           headers: {
