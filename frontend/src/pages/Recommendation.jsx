@@ -143,14 +143,28 @@ function Recommendation({ familyData, onBack, onViewPlan }) {
 
         const data = await response.json();
 
-        if (!data.success) {
+        // Support both API response formats:
+        // { success: true, plans: [...] }
+        // or a direct plans array [...]
+        const availablePlans = Array.isArray(data)
+          ? data
+          : Array.isArray(data.plans)
+          ? data.plans
+          : [];
+
+        if (!Array.isArray(data) && data.success === false) {
           throw new Error(
-            data.message ||
-              "Unable to load insurance plans."
+            data.message || "Unable to load insurance plans."
           );
         }
 
-        setPlans(data.plans || []);
+        if (availablePlans.length === 0) {
+          throw new Error(
+            "No insurance plans are available right now."
+          );
+        }
+
+        setPlans(availablePlans);
       } catch (err) {
         console.error(
           "Recommendation error:",
